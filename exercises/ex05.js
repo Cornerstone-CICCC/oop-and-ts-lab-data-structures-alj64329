@@ -6,6 +6,21 @@ const Queue = require('../lib/Queue');
 
 function mixQueue(queue) {
   // your code here
+  const temp = new Queue()
+  const mid = queue.size()/2
+
+  for (let i=0; i<mid; i++){
+    temp.enqueue(queue.dequeue())
+  }
+
+  while(!temp.isEmpty()){
+    queue.enqueue(temp.dequeue())
+    if(!queue.isEmpty()){
+      queue.enqueue(queue.dequeue())
+    }
+  }
+  return queue
+    
 }
 
 const queue = new Queue();
